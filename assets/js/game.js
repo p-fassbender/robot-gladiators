@@ -1,3 +1,8 @@
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
+    return value;
+};
+
 var fight = function(enemy) {
     while(playerInfo.health > 0 && enemy.health > 0) {        
         
@@ -106,11 +111,6 @@ var shop = function() {
             break;
     }
 };
-
-var randomNumber = function(min, max) {
-    var value = Math.floor(Math.random() * (max - min + 1) + min);
-    return value;
-}
 
 var playerInfo = {
     name: window.prompt("What is your robot's name?"),
