@@ -152,7 +152,7 @@ var playerInfo = {
             window.alert("You don't have enough money!");
         }
       }
-  };
+};
 
 var enemyInfo = [
     {
@@ -168,7 +168,5 @@ var enemyInfo = [
       attack: randomNumber(10, 14)
     }
 ];
-
-
 
 startGame();
