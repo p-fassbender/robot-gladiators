@@ -5,23 +5,31 @@ var randomNumber = function(min, max) {
 
 var fightOrSkip = function() {
     var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+    
+    if (promptFight === "" || promptFight === null) {
+        window.alert("You need to provide a valid answer! Please try again.");
+        return fightOrSkip();
+    }
+    
     promptFight = promptFight.toLowerCase();
 
     if (promptFight === "skip") {
         var confirmSkip = window.confirm("Are you sure you'd like to quit?");
         
-        if (promptFight === "" || promptFight === null) {
-            window.alert("You need to provide a valid answer! Please try again.");
-            return fightOrSkip();
-        }
-        
         if (confirmSkip) {
             window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
-            playerInfo.money = playerInfo.money - 10;
+            playerInfo.money = Math.max(0, playerInfo.money - 10);
             return true;
         }
     }
-    return false;   
+    else if (promptFight === "fight") {
+        return false; 
+    }
+    else {
+        window.alert("You need to provide a valid answer! Please try again.");
+        return fightOrSkip();
+    }
+      
 }
 
 var fight = function (enemy) {
