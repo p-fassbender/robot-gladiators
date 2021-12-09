@@ -39,6 +39,7 @@ var fight = function (enemy) {
     }
 
     while (playerInfo.health > 0 && enemy.health > 0) {
+        console.log(isPlayerTurn);
         if (isPlayerTurn) {
             if (fightOrSkip()) {
                 break;
@@ -53,12 +54,14 @@ var fight = function (enemy) {
                 window.alert(enemy.name + " has died!");
 
                 playerInfo.money = playerInfo.money + 20;
-
+                
                 break;
-            } else {
+            } 
+            else {
                 window.alert(enemy.name + " still has " + enemy.health + " health left.");
             }
-        } else {
+        } 
+        else {
             var damage = randomNumber(enemy.attack - 3, enemy.attack);
 
             playerInfo.health = Math.max(0, playerInfo.health - damage);
